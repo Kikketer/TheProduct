@@ -5,13 +5,68 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4",
     "the-dep": "git+https://github.com/Kikketer/TheDependency.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "NODE_ENV=development webpack"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-plugin-dynamic-import-webpack": "^1.0.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.5.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.12.1",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "syntax-dynamic-import"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "prettier"
+    ],
+    "parser": "babel-eslint",
+    "extends": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "printWidth": 120
+        }
+      ],
+      "no-plusplus": "off",
+      "no-underscore-dangle": "off",
+      "class-methods-use-this": "off",
+      "jsx-a11y/href-no-hash": "off",
+      "jsx-a11y/anchor-is-valid": [
+        "warn",
+        {
+          "aspects": [
+            "invalidHref"
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 120
+  },
+  "engines": {
+    "node": "^8.1.0"
   }
 }

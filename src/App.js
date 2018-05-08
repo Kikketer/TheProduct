@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
-import {vanilla, getPrint} from 'the-dep'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {Print: null}
+  }
 
-    vanilla()
+  componentDidMount() {
+    import(/*webpackChunkName: "thedep", webpackPrefetch: true*/ 'the-dep/Print').then(
+      Print => {
+        this.setState({
+          Print: Print.default
+        })
+      }
+    )
   }
 
   loadPrint() {
+    // This is if the library has the "import" statement (not in this example)
     getPrint().then(p => {
       console.log('Got Print, setting state: ', p.default)
       this.setState({Print: p.default})
     }).catch(err => {
       console.log('Error loading the print module: ', err)
     })
-    // getPrint().then(p => {
-    //   console.log(p)
-    //   // Other wild stuff could happen here like modify state and have the render process
-    //   // show the resulting print element
-    //   this.setState({Print: p})
-    // })
   }
 
   render() {
     const { Print } = this.state
     return (
       <div>
-        <button onClick={this.loadPrint.bind(this)}>Load Print</button>
-        <p>Test</p>
-        {Print && <Print />}
+        <p>You should see the Print component below:</p>
+        {Print && <Print/>}
       </div>
     );
   }
