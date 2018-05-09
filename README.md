@@ -1,4 +1,8 @@
 ## Dependency Test (The Product)
+
+NOTE: This branch is abandoned.
+----
+
 This is a simple project attempting to be a library that depends on another library that then has split files via webpack.
 
 Ideally it would load the js files only when asked for or load the files as a prefetch.  Note: The Customer isn't yet built.

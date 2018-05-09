@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getPrint } from 'the-dep'
 
 class App extends Component {
   constructor () {
@@ -7,13 +8,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    import(/*webpackChunkName: "thedep", webpackPrefetch: true*/ 'the-dep/Print').then(
-      Print => {
-        this.setState({
-          Print: Print.default
-        })
-      }
-    )
+    // import(/*webpackChunkName: "thedep", webpackPrefetch: true*/ 'the-dep/Print').then(
+    //   Print => {
+    //     this.setState({
+    //       Print: Print.default
+    //     })
+    //   }
+    // )
   }
 
   loadPrint() {
@@ -30,6 +31,7 @@ class App extends Component {
     const { Print } = this.state
     return (
       <div>
+        <button onClick={this.loadPrint}>Load the Print</button>
         <p>You should see the Print component below:</p>
         {Print && <Print/>}
       </div>
