@@ -7,24 +7,27 @@ class App extends Component {
   }
 
   componentDidMount() {
-    import(/*webpackChunkName: "thedep", webpackPrefetch: true*/ 'the-dep/Print').then(
-      Print => {
-        this.setState({
-          Print: Print.default
-        })
-      }
-    )
+    setTimeout(() => {
+      import(/*webpackPrefetch: true*/ 'the-dep/Print').then(
+        Print => {
+          console.log('Got the print library!')
+          this.setState({
+            Print: Print.default
+          })
+        }
+      )
+    }, 1000)
   }
 
-  loadPrint() {
-    // This is if the library has the "import" statement (not in this example)
-    getPrint().then(p => {
-      console.log('Got Print, setting state: ', p.default)
-      this.setState({Print: p.default})
-    }).catch(err => {
-      console.log('Error loading the print module: ', err)
-    })
-  }
+  // loadPrint() {
+  //   // This is if the library has the "import" statement (not in this example)
+  //   getPrint().then(p => {
+  //     console.log('Got Print, setting state: ', p.default)
+  //     this.setState({Print: p.default})
+  //   }).catch(err => {
+  //     console.log('Error loading the print module: ', err)
+  //   })
+  // }
 
   render() {
     const { Print } = this.state
