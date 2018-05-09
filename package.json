@@ -8,6 +8,7 @@
     "the-dep": "git+https://github.com/Kikketer/TheDependency.git"
   },
   "scripts": {
+    "start-dev": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=development webpack"
   },
   "devDependencies": {
@@ -20,7 +21,8 @@
     "eslint-plugin-prettier": "^2.6.0",
     "prettier": "^1.12.1",
     "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3"
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
   },
   "babel": {
     "presets": [
