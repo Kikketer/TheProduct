@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: ['./src/index.js'],
   output: {
-    library: 'deptest',
+    library: 'product',
     libraryTarget: 'umd',
     umdNamedDefine: true,
     filename: '[name].js',

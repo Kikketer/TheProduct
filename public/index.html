@@ -4,11 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <title>Dependency Test</title>
+    <title>The Product</title>
   </head>
   <body>
-  <h1>The Dependency Test</h1>
-  <div id="root"></div>
-  <script type="text/javascript" src="main.js"></script>
+  <h1>Vanilla!</h1>
+  <p>So this is your standard run of the mill website that has a library JS file added.</p>
+  <script type="text/javascript" src="/public/deptest.js"></script>
+  <script>
+    // Now that the main.js is loaded, let's fire it up
+    console.log('Starting deptest')
+    deptest.init()
+  </script>
   </body>
 </html>
